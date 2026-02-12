@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+@layer base {
+  body {
+    @apply bg-[#050a12] text-white antialiased;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+@layer utilities {
+  /* This completely removes the bar while keeping the swipe/scroll logic */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+@layer utilities{
+  .perspective-1000{
+perspective: 1000px;
+  }
+}
