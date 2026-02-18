@@ -1,6 +1,8 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ModuleSlider from './components/ModuleSlider'
+import TargetAudience from './components/TargetAudience'
+import Mission from './components/Mission'
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <main>
         <Hero />
         <ModuleSlider/>
+        <TargetAudience />
+        <Mission/>
       </main>
     </div>
   )
