@@ -3,9 +3,9 @@ export default function Hero() {
     <section className="relative w-full pt-32 pb-20 px-10 md:px-20 font-montserrat">
       <div className="max-w-[1440px] mx-auto">
         
-        {/* TEXT SECTION: Left Aligned */}
+  
         <div className="max-w-4xl">
-          {/* Font size reduced: 60px is the "sweet spot" for this SaaS look */}
+      
           <h1 className="text-[20px] md:text-[50px] font-bold leading-[1.1] tracking-[-0.01em] text-white">
             AI-Powered Analytics and <br />
             Reporting Platform for <br />
@@ -26,9 +26,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* DASHBOARD CARD: Now visible below the text */}
         <div className="mt-16 w-full perspective-1000 relative group">
-          {/* Subtle Glow using your 'Logo Color' Blue */}
+    
           <div className="absolute -inset-1 bg-[#007bff]/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
           
           <div className="relative bg-[#12181f] border border-gray-800 rounded-2xl aspect-video w-full flex items-center justify-center shadow-2xl transition-all duration-700 ease-out group-hover:rotate-x-6 group-hover:scale-[1.01] group-hover:-translate-y-2">

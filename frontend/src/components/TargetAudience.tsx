@@ -39,7 +39,7 @@ export default function TargetAudience() {
           Built for Financial Decision Makers
         </h2>
 
-        {/* Navigation Tabs - Senior Devs use flex-wrap for mobile responsiveness */}
+        
         <div className="flex flex-wrap justify-center gap-3 mb-16">
           {audienceData.map((item, index) => (
             <button

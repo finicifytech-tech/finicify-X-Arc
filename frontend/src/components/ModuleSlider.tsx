@@ -1,5 +1,5 @@
 export default function ModuleSlider() {
-  // This is your dynamic data - Senior engineers always separate data from UI
+
   const modules = [
     { title: "AI Data Processing", desc: "Generate actionable insights from complex datasets using Finicify AI." },
     { title: "Custom Reporting", desc: "Automated infrastructure that adapts to your institutional standards." },

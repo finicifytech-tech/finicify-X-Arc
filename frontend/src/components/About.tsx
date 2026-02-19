@@ -8,7 +8,7 @@ interface TeamMember {
 }
 
 export default function About() {
-  // Keeping only the top two Executive/Founder members
+  
   const team: TeamMember[] = [
     { name: "Founder 1", role: "CEO", sub: "Co-Founder", image: "" },
     { name: "Founder 2", role: "Co-Founder", sub: "Product Lead", image: "" },
@@ -17,7 +17,7 @@ export default function About() {
   return (
     <section id="about" className="w-full font-montserrat">
       
-      {/* PART 1: Yellow CTA Section */}
+ 
       <div className="w-full bg-[#ccff00] py-24 px-10 md:px-20 flex flex-col items-center justify-center text-center">
         <h2 className="text-[24px] md:text-[40px] font-bold text-black leading-[1.1] max-w-4xl mb-10 tracking-tight">
           Shaping the future of financial Automation Through AI-Powered Analytics and Reporting System.
@@ -27,7 +27,6 @@ export default function About() {
         </button>
       </div>
 
-      {/* PART 2: Team Section (Reduced to 2 Centered Cards) */}
       <div className="w-full bg-[#050a12] py-24 md:py-32 px-10 md:px-20 border-t border-gray-800/30">
         <div className="max-w-[1440px] mx-auto">
           

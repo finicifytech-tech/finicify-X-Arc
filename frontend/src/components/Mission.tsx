@@ -2,7 +2,7 @@ export default function Mission() {
   return (
     <section id="mission" className="w-full min-h-screen bg-[#050a12] flex flex-col md:flex-row font-montserrat border-t border-gray-800/30">
       
-      {/* Left Side: Content */}
+
       <div className="w-full md:w-1/2 flex items-center px-10 md:px-20 py-20">
         <div className="max-w-xl">
           <h2 className="text-[#ccff00] text-[12px] uppercase tracking-[0.3em] font-bold mb-8">
@@ -21,9 +21,9 @@ export default function Mission() {
         </div>
       </div>
 
-      {/* Right Side: Visual Reference */}
+   
       <div className="w-full md:w-1/2 bg-gray-900 relative overflow-hidden">
-        {/* Placeholder for your cinematic mountain or financial data visual */}
+       
         <div className="absolute inset-0 bg-gradient-to-b from-[#050a12]/20 to-[#050a12]"></div>
         <div className="w-full h-full flex items-center justify-center border-l border-gray-800">
            <span className="text-gray-800 uppercase tracking-widest font-bold text-xl opacity-20">
