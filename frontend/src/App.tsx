@@ -4,6 +4,7 @@ import ModuleSlider from './components/ModuleSlider'
 import TargetAudience from './components/TargetAudience'
 import Mission from './components/Mission'
 import About from './components/About'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <TargetAudience />
         <Mission/>
         <About/>
+        <Footer/>
       </main>
     </div>
   )

@@ -31,24 +31,26 @@ export default function TargetAudience() {
   ];
 
   return (
-    <section id="target-audience" className="w-full py-24 bg-[#050a12] font-montserrat">
+    <section id="who-is-it-for" className="w-full py-24 bg-[#050a12] font-montserrat">
       <div className="max-w-[1440px] mx-auto px-10 md:px-20">
         
-        {/* Section Heading */}
-        <h2 className="text-[28px] md:text-[42px] font-bold text-white text-center mb-12">
-          Built for Financial Decision Makers
+        {/* Section Heading - Updated */}
+        <h2 className="text-[28px] md:text-[42px] font-bold text-white text-center mb-16 tracking-tight">
+          Who is it for?
         </h2>
 
-        
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+        {/* FIXED BUTTON LAYOUT: 
+            Uses grid-cols-3 to ensure a perfect 3 on top / 3 below layout on desktop.
+        */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20 max-w-5xl mx-auto">
           {audienceData.map((item, index) => (
             <button
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`px-6 py-3 rounded-full text-[13px] font-semibold transition-all duration-300 border ${
+              className={`px-4 py-4 rounded-xl text-[12px] uppercase tracking-wider font-bold transition-all duration-300 border ${
                 activeTab === index 
-                ? "bg-[#ccff00] text-black border-[#ccff00]" 
-                : "bg-transparent text-gray-400 border-gray-800 hover:border-gray-600"
+                ? "bg-[#ccff00] text-black border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.2)]" 
+                : "bg-transparent text-gray-500 border-gray-800 hover:border-gray-600 hover:text-white"
               }`}
             >
               {item.title}
@@ -56,17 +58,26 @@ export default function TargetAudience() {
           ))}
         </div>
 
-        {/* Content Box - Animated and Clean */}
-        <div className="max-w-5xl mx-auto bg-[#12181f] border border-gray-800 rounded-3xl p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center min-h-[400px]">
+        {/* Content Box */}
+        <div className="max-w-5xl mx-auto bg-[#12181f] border border-gray-800 rounded-3xl p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center min-h-[450px]">
           
-          {/* Image/Visual Placeholder */}
-          <div className="w-full md:w-1/2 aspect-square bg-gray-900 rounded-2xl flex items-center justify-center border border-gray-800">
-             <span className="text-gray-700 uppercase tracking-widest text-xs">Visual Representation</span>
+          <div className="w-full md:w-1/2 aspect-square bg-gray-900 rounded-2xl flex items-center justify-center border border-gray-800 overflow-hidden">
+              <img 
+                src={`/audience-${activeTab + 1}.jpeg`} 
+                alt={audienceData[activeTab].title}
+                className="w-full h-full object-cover opacity-50"
+                onError={(e) => (e.currentTarget.style.display = 'none')} 
+              />
+              <span className="absolute text-gray-700 uppercase tracking-widest text-[10px] font-bold">
+                Platform Interface Visual
+              </span>
           </div>
 
-          {/* Text Content */}
           <div className="w-full md:w-1/2">
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="text-[#ccff00] text-[11px] uppercase tracking-[0.3em] font-bold mb-4">
+              Solutions for
+            </h3>
+            <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
               {audienceData[activeTab].title}
             </h3>
             <p className="text-gray-400 leading-relaxed text-lg font-light">

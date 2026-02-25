@@ -1,8 +1,15 @@
+
 @import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
 
 @layer base {
+html {
+  scroll-behavior: smooth;
+  /* Adjust 80px based on the actual height of your Navbar */
+  scroll-padding-top: 80px; 
+}
+
   body {
     @apply bg-[#050a12] text-white antialiased;
     font-family: 'Montserrat', sans-serif;

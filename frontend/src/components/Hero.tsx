@@ -5,14 +5,10 @@ export default function Hero() {
         
   
         <div className="max-w-4xl">
-      
-          <h1 className="text-[20px] md:text-[50px] font-bold leading-[1.1] tracking-[-0.01em] text-white">
-            AI-Powered Analytics and <br />
-            Reporting Platform for <br />
-            Asset Management <br />
-            Institutions
-          </h1>
-          
+      <h1 className="text-[36px] md:text-[64px] font-bold text-white max-w-5xl mb-8 
+  tracking-wider leading-[1.15] md:leading-[1.2]">
+  AI-Powered Analytics and Reporting Platform for Asset Management Institutions
+</h1>
           <p className="mt-6 text-[14px] md:text-[18px] text-gray-400 max-w-xl font-light leading-relaxed">
             Finicify is a multi-layered enterprise analytics and reporting platform that 
             automates analysis, reporting, and decision-making processes in financial 

@@ -19,8 +19,8 @@ export default function ModuleSlider() {
           <div className="h-[1px] w-full bg-gray-800"></div>
         </div>
 
-        {/* The Sliding Container */}
-        <div className="flex gap-6  pb-10 overflow-x-auto no-scrollbar scrollbar-hide snap-x snap-mandatory">
+        {/* The Sliding Container - CHANGED gap-6 TO gap-12 FOR MORE SPACING */}
+        <div className="flex gap-12 pb-10 overflow-x-auto no-scrollbar scrollbar-hide snap-x snap-mandatory">
           {modules.map((item, index) => (
             <div 
               key={index}
