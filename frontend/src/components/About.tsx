@@ -11,33 +11,33 @@ interface TeamMember {
 export default function About() {
   
   const team: TeamMember[] = [
-    { 
-      name: "Baran Alp Narinoğlu", 
-      role: "CEO", 
-      sub: "Co-Founder", 
-      image: "/founder1.jpeg.jpeg", 
-      linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
-    },
-    { 
-      name: "Can Say", 
-      role: "Product Lead", 
-      sub: "Co-Founder", 
-      image: "/founder2,jpeg.jpeg", 
-      linkedin: "http://linkedin.com/in/can-say-58869b168" 
-    },
-    { 
+        { 
       name: "Tunca Tosun", 
-      role: "Lead Engineer", 
-      sub: "Founder", 
-      image: "/founder3.jpeg.jpeg", 
+      role: "Co-Founder", 
+      sub: "", 
+      image: "/founder4.jpeg", 
       linkedin: "http://linkedin.com/in/tunca-tosun-9098bb192" 
     },
-    { 
-      name: "Founder 4", 
-      role: "Executive Lead", 
-      sub: "Founder", 
-      image: "/founder4.jpeg", 
+        { 
+      name: "Orhan Alay", 
+      role: "Co-Founder", 
+      sub: "", 
+      image: "/founder1.jpeg.jpeg", 
       linkedin: "#" 
+    },
+    { 
+      name: "Baran Alp Narinoğlu", 
+      role: "Co-Founder", 
+      sub: "", 
+      image: "/founder3.jpeg.jpeg", 
+      linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
+    },
+        { 
+      name: "Can Say", 
+      role: "Co-Founder", 
+      sub: "", 
+      image: "/founder2,jpeg.jpeg", 
+      linkedin: "http://linkedin.com/in/can-say-58869b168" 
     },
   ];
 
