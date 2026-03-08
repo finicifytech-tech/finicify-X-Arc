@@ -17,11 +17,11 @@ export default function About({ lang }: AboutProps) {
   
   const team: TeamMember[] = [
     { 
-      name: "Baran Alp Narinoğlu", 
+      name: "Tunca Tosun", 
       role: "CEO", 
       sub: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak", 
       image: "/founder1.jpeg.jpeg", 
-      linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
+      linkedin: "http://linkedin.com/in/tunca-tosun-9098bb192" 
     },
     { 
       name: "Can Say", 
@@ -30,13 +30,7 @@ export default function About({ lang }: AboutProps) {
       image: "/founder2,jpeg.jpeg", 
       linkedin: "http://linkedin.com/in/can-say-58869b168" 
     },
-    { 
-      name: "Tunca Tosun", 
-      role: lang === 'EN' ? "Lead Engineer" : "Baş Mühendis", 
-      sub: lang === 'EN' ? "Founder" : "Kurucu", 
-      image: "/founder3.jpeg.jpeg", 
-      linkedin: "http://linkedin.com/in/tunca-tosun-9098bb192" 
-    },
+    
     { 
       name: "Founder 4", 
       role: lang === 'EN' ? "Executive Lead" : "Yönetici Lider", 
@@ -44,6 +38,14 @@ export default function About({ lang }: AboutProps) {
       image: "/founder4.jpeg", 
       linkedin: "#" 
     },
+    { 
+      name: "Baran Alp Narinoğlu", 
+      role: "Co-Founder", 
+      sub: "", 
+      image: "/founder3.jpeg.jpeg", 
+      linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
+    },
+      
   ];
 
   return (

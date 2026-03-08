@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-// Added specific Language type to match your App.tsx
+
 type Language = 'EN' | 'TR';
 
 export default function TargetAudience({ lang }: { lang: Language }) {
   const [activeTab, setActiveTab] = useState(0);
 
-  // Localized data dictionary to handle switching
+
   const translations = {
     EN: {
       heading: "Who is it for?",
@@ -70,7 +70,7 @@ export default function TargetAudience({ lang }: { lang: Language }) {
     }
   };
 
-  // Select the current language data
+  
   const currentData = translations[lang];
   const audienceData = currentData.audience;
 

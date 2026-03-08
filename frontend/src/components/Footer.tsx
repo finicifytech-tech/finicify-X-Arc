@@ -12,7 +12,7 @@ interface FooterProps {
   lang: 'EN' | 'TR';
 }
 
-// Ensure "export default" is exactly like this
+
 export default function Footer({ t, lang }: FooterProps) {
   const currentYear = new Date().getFullYear();
 

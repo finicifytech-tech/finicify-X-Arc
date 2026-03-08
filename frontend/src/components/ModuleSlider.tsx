@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Added Language type to match your App.tsx
+
 type Language = 'EN' | 'TR';
 
 export default function ModuleSlider({ lang }: { lang: Language }) {

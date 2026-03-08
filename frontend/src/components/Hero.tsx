@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-// Added interface to handle the translation data passed from App.tsx
+
 interface HeroProps {
   t: {
     title: string;
@@ -41,17 +41,17 @@ export default function Hero({ t }: HeroProps) {
       <div className="max-w-[1440px] mx-auto relative z-10">
         
         <div className="max-w-4xl">
-          {/* Use the translated title from props */}
+        
           <h1 className="text-[36px] md:text-[64px] font-bold text-white max-w-5xl mb-8 tracking-wider leading-[1.15] md:leading-[1.2] drop-shadow-lg">
             {t.title}
           </h1>
-          {/* Use the translated description from props */}
+          
           <p className="mt-6 text-[14px] md:text-[18px] text-gray-200 max-w-xl font-medium leading-relaxed drop-shadow-md">
             {t.desc}
           </p>
 
           <div className="mt-8">
-            {/* Use the translated button text from props */}
+
             <button className="px-10 py-4 bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] text-white font-bold rounded-lg text-[15px] hover:scale-105 transition-transform shadow-[0_0_30px_rgba(2,117,246,0.3)]">
               {t.cta}
             </button>

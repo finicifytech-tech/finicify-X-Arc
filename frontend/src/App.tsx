@@ -7,14 +7,14 @@ import Mission from './components/Mission'
 import About from './components/About'
 import Footer from './components/Footer'
 import { translation, type Language } from './translation'
-// Import the type and the data
+
 
 
 function App() {
-  // Use <Language> to tell TS this state only holds 'EN' or 'TR'
+  
   const [lang, setLang] = useState<Language>('EN'); 
   
-  // This line is now error-free!
+
   const t = translation[lang]; 
 
   return (

@@ -11,7 +11,7 @@ interface MissionProps {
 }
 
 export default function Mission({ t }: MissionProps) {
-  // SAFETY GUARD: Prevents the "Cannot read properties of undefined" error
+ 
   if (!t) return null;
 
   return (
@@ -20,7 +20,7 @@ export default function Mission({ t }: MissionProps) {
       {/* Left Content Area */}
       <div className="w-full md:w-1/2 flex items-center px-10 md:px-20 py-24">
         <div className="max-w-xl">
-          {/* Linked to translation file */}
+       
           <h2 className="text-[#1bc6e7] text-[12px] uppercase tracking-[0.4em] font-bold mb-8">
             {t.label}
           </h2>
@@ -41,7 +41,7 @@ export default function Mission({ t }: MissionProps) {
         </div>
       </div>
 
-      {/* Right Visual Area - No styling changes made as requested */}
+     
       <div className="w-full md:w-1/2 bg-[#0a1018] relative overflow-hidden flex items-center justify-center border-l border-gray-800/50">
         
         <div className="absolute inset-0 opacity-10" 
