@@ -1,5 +1,10 @@
 import React from 'react';
 
+// Added this to handle the language prop from App.tsx
+interface AboutProps {
+  lang: 'EN' | 'TR';
+}
+
 interface TeamMember {
   name: string;
   role: string;
@@ -8,34 +13,34 @@ interface TeamMember {
   linkedin: string;
 }
 
-export default function About() {
+export default function About({ lang }: AboutProps) {
   
   const team: TeamMember[] = [
     { 
       name: "Baran Alp Narinoğlu", 
       role: "CEO", 
-      sub: "Co-Founder", 
+      sub: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak", 
       image: "/founder1.jpeg.jpeg", 
       linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
     },
     { 
       name: "Can Say", 
-      role: "Product Lead", 
-      sub: "Co-Founder", 
+      role: lang === 'EN' ? "Product Lead" : "Ürün Lideri", 
+      sub: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak", 
       image: "/founder2,jpeg.jpeg", 
       linkedin: "http://linkedin.com/in/can-say-58869b168" 
     },
     { 
       name: "Tunca Tosun", 
-      role: "Lead Engineer", 
-      sub: "Founder", 
+      role: lang === 'EN' ? "Lead Engineer" : "Baş Mühendis", 
+      sub: lang === 'EN' ? "Founder" : "Kurucu", 
       image: "/founder3.jpeg.jpeg", 
       linkedin: "http://linkedin.com/in/tunca-tosun-9098bb192" 
     },
     { 
       name: "Founder 4", 
-      role: "Executive Lead", 
-      sub: "Founder", 
+      role: lang === 'EN' ? "Executive Lead" : "Yönetici Lider", 
+      sub: lang === 'EN' ? "Founder" : "Kurucu", 
       image: "/founder4.jpeg", 
       linkedin: "#" 
     },
@@ -49,16 +54,18 @@ export default function About() {
         <div className="max-w-[1440px] mx-auto">
           
           <div className="text-center mb-20">
-            <span className="text-[#ccff00] text-[12px] uppercase tracking-[0.4em] font-bold">Founders</span>
-            <h3 className="text-[36px] md:text-[48px] font-bold text-white mt-4">The Founding Team</h3>
+            <span className="text-[#1bc6e7] text-[12px] uppercase tracking-[0.4em] font-bold">
+              {lang === 'EN' ? 'Founders' : 'Kurucular'}
+            </span>
+            <h3 className="text-[36px] md:text-[48px] font-bold text-white mt-4">
+              {lang === 'EN' ? 'The Founding Team' : 'Kurucu Ekibimiz'}
+            </h3>
           </div>
 
-          {/* FLEX ROW: Ensures all 4 cards stay on the same horizontal line on desktop */}
           <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 max-w-7xl mx-auto">
             {team.map((member, index) => (
               <div key={index} className="flex-1 min-w-[250px] max-w-[320px] flex flex-col">
                 
-                {/* CARD STYLE: Consistent aspect ratio and color */}
                 <div className="w-full aspect-[4/5] bg-[#0a1018] border border-gray-800/50 rounded-2xl mb-6 flex items-center justify-center overflow-hidden relative shadow-2xl transition-all duration-500 hover:border-[#0275f6]/40 group">
                   <img 
                     src={member.image} 
@@ -68,7 +75,6 @@ export default function About() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0275f6]/15 to-transparent pointer-events-none" />
                 </div>
 
-                {/* TEXT AREA: Takes up remaining space so cards align perfectly */}
                 <div className="flex-grow space-y-1">
                   <div className="flex items-center gap-2">
                     <h4 className="text-[17px] font-bold text-white truncate">{member.name}</h4>
@@ -90,13 +96,15 @@ export default function About() {
         </div>
       </div>
 
-      {/* PART 2: Yellow CTA Section */}
-      <div className="w-full bg-[#ccff00] py-24 px-10 md:px-20 flex flex-col items-center justify-center text-center">
-        <h2 className="text-[24px] md:text-[40px] font-bold text-black leading-[1.1] max-w-4xl mb-10 tracking-tight">
-          Shaping the future of financial Automation Through AI-Powered Analytics and Reporting System.
+      {/* PART 2: Blue CTA Section */}
+      <div className="w-full bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] py-24 px-10 md:px-20 flex flex-col items-center justify-center text-center">
+        <h2 className="text-[24px] md:text-[40px] font-bold text-white leading-[1.1] max-w-4xl mb-10 tracking-tight">
+          {lang === 'EN' 
+            ? 'Shaping the future of financial Automation Through AI-Powered Analytics and Reporting System.' 
+            : 'Yapay Zeka Destekli Analiz ve Raporlama Sistemi ile Finansal Otomasyonun Geleceğini Şekillendiriyoruz.'}
         </h2>
-        <button className="px-10 py-4 bg-black text-white font-bold rounded-lg hover:scale-105 transition-transform duration-300">
-          Contact Us
+        <button className="px-10 py-4 bg-black text-white font-bold rounded-lg hover:scale-105 transition-transform duration-300 shadow-xl">
+          {lang === 'EN' ? 'Contact Us' : 'Bize Ulaşın'}
         </button>
       </div>
 
