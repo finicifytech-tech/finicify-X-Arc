@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Define the interface to match your App.tsx
 interface FooterProps {
   t: {
     modules: string;
@@ -12,7 +11,6 @@ interface FooterProps {
   lang: 'EN' | 'TR';
 }
 
-
 export default function Footer({ t, lang }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
@@ -21,8 +19,22 @@ export default function Footer({ t, lang }: FooterProps) {
       <div className="max-w-[1440px] mx-auto">
         
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-white tracking-tight">FINICIFY</h2>
+          
+          <div className="space-y-6">
+            <a href="#home" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+              <img 
+                src="/logo.png" 
+                alt="Finicify Icon" 
+                className="h-8 w-auto object-contain" 
+              />
+              <img 
+                src="/type_white.png" 
+                alt="Finicify" 
+                className="h-4 w-auto object-contain mt-1" 
+              />
+            </a>
+
+            {/* FIXED: Added correct English translation here */}
             <p className="text-gray-400 text-sm max-w-xs leading-relaxed">
               {lang === 'EN' 
                 ? "AI-powered financial intelligence platform for institutional-grade analytics and automated reporting."
