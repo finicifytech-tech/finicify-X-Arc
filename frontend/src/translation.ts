@@ -8,7 +8,7 @@ export const translation = {
       desc: "Finicify is a multi-layered enterprise analytics and reporting platform...",
       cta: "Book demo →"
     },
-    // ADD THIS: Mission section data for English
+  
     mission: {
       label: "Our Mission",
       title: "Building the infrastructure for modern financial intelligence.",
@@ -23,7 +23,7 @@ export const translation = {
       desc: "Finicify; analiz, raporlama ve karar alma süreçlerini otomatize eden...",
       cta: "Demo Al →"
     },
-    // ADD THIS: Mission section data for Turkish
+    
     mission: {
       label: "Misyonumuz",
       title: "Modern finansal istihbarat için altyapı inşa ediyoruz.",

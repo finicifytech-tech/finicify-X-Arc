@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Added interface to define props and clear TypeScript errors
+
 interface MissionProps {
   t?: {
     label: string;

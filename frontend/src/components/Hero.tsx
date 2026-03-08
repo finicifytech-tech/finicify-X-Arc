@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 export default function Hero({ t }: HeroProps) {
-  // Screens 1-5 from your public folder
+
   const screens = [
     "/1.png", 
     "/2.png", 
@@ -66,7 +66,7 @@ export default function Hero({ t }: HeroProps) {
                 alt={`Finicify Dashboard Screen ${current + 1}`}
               />
 
-              {/* UPDATED: High-Visibility Navigation Arrows */}
+             
               <div className="absolute inset-0 flex items-center justify-between px-4 sm:px-10 pointer-events-none">
                 <button 
                   onClick={prev} 
