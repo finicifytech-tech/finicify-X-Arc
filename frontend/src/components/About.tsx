@@ -8,7 +8,7 @@ interface AboutProps {
 interface TeamMember {
   name: string;
   role: string;
-  sub: string;
+ 
   image: string;
   linkedin: string;
 }
@@ -16,35 +16,38 @@ interface TeamMember {
 export default function About({ lang }: AboutProps) {
   
   const team: TeamMember[] = [
+    
     { 
       name: "Tunca Tosun", 
-      role: "CEO", 
-      sub: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak", 
-      image: "/founder1.jpeg.jpeg", 
+    role: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak",
+     
+      image: "/founder4.jpeg", 
       linkedin: "http://linkedin.com/in/tunca-tosun-9098bb192" 
     },
     { 
+      name: "Orhan Alay", 
+     role: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak", 
+      
+      image: "/founder1.jpeg.jpeg", 
+      linkedin: "" 
+    },
+   
+    
+    { 
+      name: "Baran Alp Narinoğlu", 
+      role: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak",
+      
+      image: "/founder3.jpeg.jpeg", 
+      linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
+    },
+     { 
       name: "Can Say", 
-      role: lang === 'EN' ? "Product Lead" : "Ürün Lideri", 
-      sub: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak", 
+      role: lang === 'EN' ? "Co-Founder" : "Kurucu Ortak",
+       
       image: "/founder2,jpeg.jpeg", 
       linkedin: "http://linkedin.com/in/can-say-58869b168" 
     },
     
-    { 
-      name: "Founder 4", 
-      role: lang === 'EN' ? "Executive Lead" : "Yönetici Lider", 
-      sub: lang === 'EN' ? "Founder" : "Kurucu", 
-      image: "/founder4.jpeg", 
-      linkedin: "#" 
-    },
-    { 
-      name: "Baran Alp Narinoğlu", 
-      role: "Co-Founder", 
-      sub: "", 
-      image: "/founder3.jpeg.jpeg", 
-      linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
-    },
       
   ];
 
@@ -90,7 +93,7 @@ export default function About({ lang }: AboutProps) {
                     </a>
                   </div>
                   <p className="text-gray-400 font-semibold text-sm">{member.role}</p>
-                  <p className="text-gray-600 text-[10px] font-medium uppercase tracking-widest">{member.sub}</p>
+                  
                 </div>
               </div>
             ))}
