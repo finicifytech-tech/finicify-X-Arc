@@ -21,12 +21,12 @@ function App() {
     <div className="min-h-screen bg-[#050a12] w-screen overflow-x-hidden">
       <Navbar lang={lang} setLang={setLang} t={t.nav} />
       <main>
-        <Hero t={t.hero} />
+        <Hero t={t.hero} lang={lang} />
         <ModuleSlider lang={lang} />
         <TargetAudience lang={lang} />
         <Mission t={t.mission} />
         <About lang={lang} />
-        <Footer t={t.nav} />
+        <Footer t={t.nav} lang={lang} />
       </main>
     </div>
   )
