@@ -86,7 +86,6 @@ export default function About({ lang }: AboutProps) {
                 <div className="flex-grow space-y-1">
                   <div className="flex items-center gap-2">
                     <h4 className="text-[17px] font-bold text-white truncate">{member.name}</h4>
-                    
                     <a 
                       href={member.linkedin}
                       target="_blank"

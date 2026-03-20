@@ -3,10 +3,10 @@ export type Language = 'EN' | 'TR' | 'DE';
 export const translation = {
   EN: {
     nav: { 
-      modules: "Modules", 
+      modules: "MODULES / FEATURES", 
       who: "Who is it for?", 
-      mission: "Mission", 
-      about: "About Us", 
+      mission: "OUR MISSION", 
+      about: "ABOUT US", 
       signIn: "Sign In" 
     },
     hero: {
@@ -15,38 +15,38 @@ export const translation = {
       cta: "Book demo →"
     },
     mission: {
-      label: "Our Mission",
-      title: "Building the infrastructure for modern financial intelligence.",
-      desc1: "Finicify integrates data, analytics, and decision-making processes into a unified ecosystem. We are dedicated to eliminating inefficient manual operations by providing an automated, institutional-grade platform that ensures precision in every data point.",
-      desc2: "By enabling sustainable, scalable content production and rigorous process management, we are directly contributing to the digital transformation and development of capital markets—starting with a foundation of trust and transparency."
+      label: "HEDEFİMİZ / MİSYONUMUZ",
+      title: "OUR MISSION",
+      desc1: "Finicify integrates data, analytics, and decision-making processes into a unified platform, eliminating manual operations and enabling sustainable, scalable content production and process management—contributing to the development of the Turkish capital markets.",
+      desc2: "" 
     }
   },
   TR: {
     nav: { 
-      modules: "Modüller", 
+      modules: "MODÜLLER / ÖZELLİKLER", 
       who: "Kimin İçin?", 
-      mission: "Misyonumuz", 
-      about: "Hakkımızda", 
+      mission: "HEDEFİMİZ / MİSYONUMUZ", 
+      about: "HAKKIMIZDA", 
       signIn: "Giriş Yap" 
     },
     hero: {
-      title: "Portföy Yönetim Kurumları İçin Yapay Zeka Destekli Analiz ve Raporlama Platformu",
-      desc: "Finicify; analiz, raporlama ve karar alma süreçlerini otomatize ederek verimliliği sürdürülebilir kılan çok katmanlı bir kurumsal platformdur.",
+      title: "Varlık Yöneten Kurumlara Yönelik Yapay Zeka Destekli Analiz ve Raporlama Platformu",
+      desc: "Finicify, finans kurumlarında analiz, raporlama ve karar süreçlerini otomatikleştirerek verimliliği kalıcı hale getiren çok katmanlı bir kurumsal analiz ve raporlama platformudur.",
       cta: "Demo Al →"
     },
     mission: {
-      label: "Misyonumuz",
-      title: "Modern finansal istihbarat için altyapı inşa ediyoruz.",
-      desc1: "Finicify; veri, analiz ve karar alma süreçlerini birleşik bir ekosisteme entegre eder. Kurumsal düzeyde bir platform sunarak verimsiz manuel operasyonları ortadan kaldırmaya ve her veri noktasında hassasiyet sağlamaya kararlıyız.",
-      desc2: "Sürdürülebilir, ölçeklenebilir içerik üretimi ve titiz süreç yönetimi sağlayarak, sermaye piyasalarının dijital dönüşümüne ve gelişimine doğrudan katkıda bulunuyoruz—güven ve şeffaflık temeliyle başlıyoruz."
+      label: "HEDEFİMİZ / MİSYONUMUZ",
+      title: "HEDEFİMİZ / MİSYONUMUZ",
+      desc1: "Finicify, finans kurumlarında veriyi, analizi ve karar süreçlerini tek bir yapıda birleştirerek manuel operasyonları ortadan kaldırır, sürdürülebilir ve ölçeklenebilir içerik üretimi ve süreç yönetimi sağlayarak Türk Sermaye Piyasaların gelişimine katkı sağlar.",
+      desc2: ""
     }
   },
   DE: {
     nav: { 
-      modules: "Module", 
+      modules: "MODULE / FUNKTIONEN", 
       who: "Zielgruppen", 
-      mission: "Mission", 
-      about: "Über uns", 
+      mission: "UNSERE MISSION", 
+      about: "ÜBER UNS", 
       signIn: "Anmelden" 
     },
     hero: {
@@ -55,10 +55,10 @@ export const translation = {
       cta: "Demo buchen →"
     },
     mission: {
-      label: "Unsere Mission",
-      title: "Aufbau der Infrastruktur für moderne Financial Intelligence.",
-      desc1: "Finicify integriert Daten, Analysen und Entscheidungsprozesse in ein einheitliches Ökosystem. Wir widmen uns der Eliminierung ineffizienter manueller Abläufe durch eine automatisierte Plattform auf institutionellem Niveau, die Präzision in jedem Datenpunkt gewährleistet.",
-      desc2: "Indem wir eine nachhaltige, skalierbare Content-Erstellung und ein strenges Prozessmanagement ermöglichen, tragen wir direkt zur digitalen Transformation und Entwicklung der Kapitalmärkte bei – basierend auf Vertrauen und Transparenz."
+      label: "UNSERE MISSION",
+      title: "UNSERE MISSION",
+      desc1: "Finicify integriert Daten, Analysen und Entscheidungsprozesse in einer einheitlichen Plattform, eliminiert manuelle Abläufe und ermöglicht eine nachhaltige, skalierbare Content-Erstellung und Prozesssteuerung – ein Beitrag zur Entwicklung der türkischen Kapitalmärkte.",
+      desc2: ""
     }
   }
 };

@@ -14,17 +14,9 @@ interface FooterProps {
 export default function Footer({ t, lang }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
-  // Content helper for institutional description
-  const getDescription = () => {
-    if (lang === 'TR') return "Kurumsal düzeyde analitik ve otomatik raporlama için yapay zeka destekli finansal istihbarat platformu.";
-    if (lang === 'DE') return "KI-gestützte Financial-Intelligence-Plattform für institutionelle Analysen und automatisiertes Reporting.";
-    return "AI-powered financial intelligence platform for institutional-grade analytics and automated reporting.";
-  };
-
   return (
     <footer className="w-full bg-[#050a12] pt-20 pb-10 px-10 md:px-20 border-t border-gray-800/30 font-montserrat">
       <div className="max-w-[1440px] mx-auto">
-        
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           <div className="space-y-6">
             <a href="#home" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity">
@@ -39,10 +31,6 @@ export default function Footer({ t, lang }: FooterProps) {
                 className="h-4 md:h-5 w-auto object-contain"
               />
             </a>
-
-            <p className="text-gray-400 text-sm max-w-xs leading-relaxed">
-              {getDescription()}
-            </p>
           </div>
 
           <div className="flex flex-col gap-4">

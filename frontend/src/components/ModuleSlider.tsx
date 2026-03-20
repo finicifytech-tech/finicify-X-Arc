@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 
 type Language = 'EN' | 'TR' | 'DE';
 
@@ -53,11 +53,11 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
           desc: "Finicify, büyük veri setlerini kapsamlı ve özelleştirilebilir analizler ve yapay zeka ile analiz ederek karar süreçlerini destekleyen hızlı, doğru ve aksiyon alınabilir içgörüler üretir." 
         },
         { 
-          title: "Kurum Yaklaşımına Uygun Özelleştirilebilir Otomatik Analizi ve Raporlama Altyapısı", 
+          title: "Kurum Yaklaşımına Uygun Özelleştirilebilir Otomatik Analiz ve Raporlama Altyapısı", 
           desc: "Kurumunuzun yaklaşımına ve standartlarına uyum sağlayan otomatik analiz ve raporlama altyapısı ile esnek ve sürdürülebilir bir yapı sunar." 
         },
         { 
-          title: "Genişleyen İçerik Hacmine Rağmen Ölçeklenebilir Ve Yüksek Kalite İçerik Üretimi", 
+          title: "Genişleyen İçerik Hacmine Rağmen Ölçeklenebilir Ve Yüksek Kaliteli İçerik Üretimi", 
           desc: "Artan veri ve içerik hacmine rağmen, kalite standartlarını koruyarak ölçeklenebilir, geniş kapsamlı ve tutarlı rapor üretimi sağlar." 
         },
         { 
@@ -69,7 +69,7 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
           desc: "Manuel süreçleri otomatikleştirerek ekiplerin operasyonel yükünü azaltır, verimliliği arttırır, zaman ve maliyet tasarrufu sağlar." 
         },
         { 
-          title: "Raporlama ve Analiz Süreçlerin Entegre ve Tek Sistemden Yönetilmesi", 
+          title: "Raporlama ve Analiz Süreçlerinin Entegre ve Tek Sistemden Yönetilmesi", 
           desc: "Tüm analiz, raporlama ve onay süreçlerini tek bir platform üzerinden entegre şekilde yöneterek operasyonel karmaşıklığı ortadan kaldırır." 
         }
       ]
@@ -106,8 +106,14 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
   }), []);
 
   const current = data[lang];
-  const handleNext = () => setCurrentIndex((prev) => (prev + 1) % current.modules.length);
-  const handlePrev = () => setCurrentIndex((prev) => (prev === 0 ? current.modules.length - 1 : prev - 1));
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % current.modules.length);
+  }, [current.modules.length]);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev === 0 ? current.modules.length - 1 : prev - 1));
+  }, [current.modules.length]);
 
   return (
     <section id="modules" className="w-full py-24 bg-[#050a12] font-montserrat overflow-hidden">
@@ -120,8 +126,20 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
             <div className="h-[1px] w-48 bg-gray-800" />
           </div>
           <div className="flex gap-4 ml-8">
-            <button onClick={handlePrev} className="p-3 rounded-full border border-gray-800 text-white hover:bg-[#0275f6] hover:border-[#0275f6] transition-all duration-300 active:scale-95 shadow-lg">←</button>
-            <button onClick={handleNext} className="p-3 rounded-full border border-gray-800 text-white hover:bg-[#1bc6e7] hover:border-[#1bc6e7] transition-all duration-300 active:scale-95 shadow-lg">→</button>
+            <button 
+              onClick={handlePrev} 
+              aria-label="Previous Module"
+              className="p-3 rounded-full border border-gray-800 text-white hover:bg-[#0275f6] hover:border-[#0275f6] transition-all duration-300 active:scale-95 shadow-lg"
+            >
+              ←
+            </button>
+            <button 
+              onClick={handleNext} 
+              aria-label="Next Module"
+              className="p-3 rounded-full border border-gray-800 text-white hover:bg-[#1bc6e7] hover:border-[#1bc6e7] transition-all duration-300 active:scale-95 shadow-lg"
+            >
+              →
+            </button>
           </div>
         </div>
 
