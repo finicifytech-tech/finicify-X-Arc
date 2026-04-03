@@ -7,7 +7,7 @@ export const translation = {
       who: "Who is it for?", 
       mission: "OUR MISSION", 
       about: "ABOUT US", 
-      signIn: "Sign In" 
+      signIn: "Book a Demo" 
     },
     hero: {
       title: "AI-Powered Analytics and Reporting Platform for Asset Management Institutions",
@@ -27,12 +27,12 @@ export const translation = {
       who: "Kimin İçin?", 
       mission: "HEDEFİMİZ / MİSYONUMUZ", 
       about: "HAKKIMIZDA", 
-      signIn: "Giriş Yap" 
+      signIn: "Demo Talep Et" 
     },
     hero: {
       title: "Varlık Yöneten Kurumlara Yönelik Yapay Zeka Destekli Analiz ve Raporlama Platformu",
       desc: "Finicify, finans kurumlarında analiz, raporlama ve karar süreçlerini otomatikleştirerek verimliliği kalıcı hale getiren çok katmanlı bir kurumsal analiz ve raporlama platformudur.",
-      cta: "Demo Al →"
+      cta: "Demo Talep Et →"
     },
     mission: {
       label: "HEDEFİMİZ / MİSYONUMUZ",
@@ -47,12 +47,12 @@ export const translation = {
       who: "Zielgruppen", 
       mission: "UNSERE MISSION", 
       about: "ÜBER UNS", 
-      signIn: "Anmelden" 
+      signIn: "Demo Anfragen" 
     },
     hero: {
       title: "KI-gestützte Analyse- und Reporting-Plattform für Institutionen der Vermögensverwaltung",
       desc: "Finicify ist eine mehrschichtige Enterprise-Analyse- und Reporting-Plattform, die Analyse-, Berichts- und Entscheidungsprozesse in Finanzinstituten automatisiert und Effizienz nachhaltig macht.",
-      cta: "Demo buchen →"
+      cta: "Demo Anfragen →"
     },
     mission: {
       label: "UNSERE MISSION",
