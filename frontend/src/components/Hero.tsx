@@ -13,7 +13,7 @@ interface HeroProps {
 
 export default function Hero({ t }: HeroProps) {
   
-  const screens = ["/1.png", "/second.png", "/third.png", "/fourth.png", "/fifth.png"];
+  const screens = ["/first.jpeg", "/second.png", "/third.png", "/fourth.png", "/fifth.png"];
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -60,9 +60,14 @@ export default function Hero({ t }: HeroProps) {
             {t.desc}
           </p>
           <div className="mt-8">
-            <button className="px-10 py-4 bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] text-white font-bold rounded-lg text-[15px] hover:scale-105 transition-transform shadow-[0_0_30px_rgba(2,117,246,0.3)]">
-              {t.cta}
-            </button>
+            <a
+  href="https://calendly.com/tunca-finicify"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block px-10 py-4 bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] text-white font-bold rounded-lg text-[15px] hover:scale-105 transition-transform shadow-[0_0_30px_rgba(2,117,246,0.3)]"
+>
+  {t.cta}
+</a>
           </div>
         </div>
 

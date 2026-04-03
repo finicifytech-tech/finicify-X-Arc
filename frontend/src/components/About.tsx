@@ -111,9 +111,14 @@ export default function About({ lang }: AboutProps) {
         <p className="text-white/90 text-[14px] md:text-[16px] font-normal max-w-3xl mb-10 leading-relaxed">
           {content.ctaDesc}
         </p>
-        <button className="px-10 py-4 bg-black text-white font-bold rounded-lg hover:scale-105 transition-transform duration-300 shadow-xl">
-          {content.ctaButton}
-        </button>
+        <a
+  href="https://calendly.com/tunca-finicify"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block px-10 py-4 bg-black text-white font-bold rounded-lg hover:scale-105 transition-transform duration-300 shadow-xl"
+>
+  {content.ctaButton}
+</a>
       </div>
     </section>
   );

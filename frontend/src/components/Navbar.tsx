@@ -52,16 +52,21 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
           </div>
 
           <div className="flex items-center gap-4 border-l border-white/10 pl-8">
-            <button className="
-              relative px-5 py-2 text-[11px] font-bold text-white tracking-wider
-              bg-white/5 hover:bg-white/10
-              border border-white/10 hover:border-white/20
-              rounded-lg backdrop-blur-sm
-              transition-all duration-200
-              shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
-            ">
-              {t.signIn}
-            </button>
+            <a
+  href="https://calendly.com/tunca-finicify"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    relative px-5 py-2 text-[11px] font-bold text-white tracking-wider
+    bg-white/5 hover:bg-white/10
+    border border-white/10 hover:border-white/20
+    rounded-lg backdrop-blur-sm
+    transition-all duration-200
+    shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
+  "
+>
+  {t.signIn}
+</a>
 
             <button
               onClick={handleLangToggle}
