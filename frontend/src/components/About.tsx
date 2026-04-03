@@ -26,7 +26,7 @@ export default function About({ lang }: AboutProps) {
         name: "Orhan Alay", 
         role: roleLabel, 
         image: "/founder1.jpeg.jpeg", 
-        linkedin: "#" 
+        linkedin: "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-2024-fiat-egea-1.3-mjet-20-faturali-boyasiz-11.000-km-1305839058/detay" 
       },
       { 
         name: "Baran Alp Narinoğlu", 
