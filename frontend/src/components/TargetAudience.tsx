@@ -117,7 +117,7 @@ export default function TargetAudience({ lang }: { lang: Language }) {
         <div className="max-w-5xl mx-auto bg-[#12181f] border border-gray-800 rounded-3xl p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center min-h-[450px]">
           <div className="w-full md:w-1/2 aspect-square bg-[#0a1018] rounded-2xl flex items-center justify-center border border-gray-800 overflow-hidden relative">
             <img 
-              src={`/${activeContent.image}`} 
+              src={`/finicify-X-Arc/${activeContent.image}`}
               alt={activeContent.title}
               className="w-full h-full object-cover scale-105 opacity-100 transition-all duration-500"
               onError={(e) => { e.currentTarget.style.display = 'none'; }} 
