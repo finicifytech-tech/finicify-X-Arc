@@ -27,17 +27,17 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
         shadow-[0_1px_0_rgba(255,255,255,0.04),0_4px_24px_rgba(0,0,0,0.3)]
         before:absolute before:inset-0 before:bg-gradient-to-r before:from-[#0275f6]/5 before:via-transparent before:to-[#1bc6e7]/5 before:pointer-events-none"
       >
-        {/* Subtle top highlight line */}
+
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1bc6e7]/30 to-transparent" />
 
         <a href="#home" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity relative z-10">
           <img
-            src="/logo resized.png"
+            src="/finicify-X-Arc/logo resized.png"
             alt="Finicify Icon"
             className="h-5 md:h-6 w-auto object-contain"
           />
           <img
-            src="/type_white.png"
+            src="/finicify-X-Arc/type_white.png"
             alt="Finicify"
             className="h-4 md:h-5 w-auto object-contain"
           />
@@ -53,20 +53,20 @@ export default function Navbar({ lang, setLang, t }: NavbarProps) {
 
           <div className="flex items-center gap-4 border-l border-white/10 pl-8">
             <a
-  href="https://calendly.com/tunca-finicify"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="
-    relative px-5 py-2 text-[11px] font-bold text-white tracking-wider
-    bg-white/5 hover:bg-white/10
-    border border-white/10 hover:border-white/20
-    rounded-lg backdrop-blur-sm
-    transition-all duration-200
-    shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
-  "
->
-  {t.signIn}
-</a>
+              href="https://calendly.com/tunca-finicify"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                relative px-5 py-2 text-[11px] font-bold text-white tracking-wider
+                bg-white/5 hover:bg-white/10
+                border border-white/10 hover:border-white/20
+                rounded-lg backdrop-blur-sm
+                transition-all duration-200
+                shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]
+              "
+            >
+              {t.signIn}
+            </a>
 
             <button
               onClick={handleLangToggle}
