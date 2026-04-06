@@ -19,25 +19,25 @@ export default function About({ lang }: AboutProps) {
       { 
         name: "Tunca Tosun", 
         role: roleLabel,
-        image: "/finicify-X-Arc/founder4.jpeg", 
+        image: "/founder4.jpeg", 
         linkedin: "http://linkedin.com/in/tunca-tosun-9098bb192" 
       },
       { 
         name: "Orhan Alay", 
         role: roleLabel, 
-        image: "/finicify-X-Arc/founder1.jpeg.jpeg", 
+        image: "/founder1.jpeg.jpeg", 
         linkedin: "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-2024-fiat-egea-1.3-mjet-20-faturali-boyasiz-11.000-km-1305839058/detay" 
       },
       { 
         name: "Baran Alp Narinoğlu", 
         role: roleLabel,
-        image: "/finicify-X-Arc/founder3.jpeg.jpeg", 
+        image: "/founder3.jpeg.jpeg", 
         linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
       },
       { 
         name: "Can Say", 
         role: roleLabel,
-        image: "/finicify-X-Arc/founder2,jpeg.jpeg", 
+        image: "/founder2,jpeg.jpeg", 
         linkedin: "http://linkedin.com/in/can-say-58869b168" 
       },
     ];

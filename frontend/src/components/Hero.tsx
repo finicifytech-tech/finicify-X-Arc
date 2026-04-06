@@ -14,11 +14,11 @@ interface HeroProps {
 export default function Hero({ t }: HeroProps) {
   
   const screens = [
-    "/finicify-X-Arc/first.jpeg",
-    "/finicify-X-Arc/second.png",
-    "/finicify-X-Arc/third.png",
-    "/finicify-X-Arc/fourth.png",
-    "/finicify-X-Arc/fifth.png"
+    "/first.jpeg",
+    "/second.png",
+    "/third.png",
+    "/fourth.png",
+    "/fifth.png"
   ];
 
   const [current, setCurrent] = useState(0);
@@ -53,7 +53,7 @@ export default function Hero({ t }: HeroProps) {
     <section className="relative w-full pt-32 pb-20 px-10 md:px-20 font-montserrat bg-[#050a12] overflow-hidden">
     
       <div className="absolute inset-0 z-0">
-        <img src="/finicify-X-Arc/walpaper.jpeg" alt="" className="w-full h-full object-cover opacity-50" />
+        <img src="/walpaper.jpeg" alt="" className="w-full h-full object-cover opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050a12]/40 to-[#050a12]" />
       </div>
 

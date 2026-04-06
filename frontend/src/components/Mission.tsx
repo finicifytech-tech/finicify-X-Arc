@@ -41,7 +41,7 @@ export default function Mission({ t }: MissionProps) {
 
       <div className="w-full md:w-1/2 bg-[#0a1018] relative overflow-hidden flex items-center justify-center border-l border-gray-800/50">
         <img 
-          src="/finicify-X-Arc/our mission image.jpeg" 
+          src="/our mission image.jpeg" 
           alt="Our Mission" 
           className="w-full h-full object-cover scale-105 opacity-100 transition-transform duration-700" 
         />
