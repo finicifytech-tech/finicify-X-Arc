@@ -20,12 +20,12 @@ export default function Footer({ t, lang }: FooterProps) {
           <div className="space-y-6">
             <a href="#home" className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity">
               <img
-                src="/logo resized.png"
+                src="/finicify-X-Arc/logo resized.png"
                 alt="Finicify Icon"
                 className="h-5 md:h-6 w-auto object-contain"
               />
               <img
-                src="/type_white.png"
+                src="/finicify-X-Arc/type_white.png"
                 alt="Finicify"
                 className="h-4 md:h-5 w-auto object-contain"
               />

@@ -20,12 +20,12 @@ export default function TargetAudience({ lang }: { lang: Language }) {
 
   const translations: Record<Language, Localization> = useMemo(() => {
     const images = [
-      "/finicify-X-Arc/research and analysis team.jpeg",
-      "/finicify-X-Arc/sales and marketing team.jpeg",
-      "/finicify-X-Arc/collective investment fund managers.jpeg",
-      "/finicify-X-Arc/Treasury and finance departments.jpeg",
-      "/finicify-X-Arc/strategy teams.jpeg",
-      "/finicify-X-Arc/executive management and boards.jpeg"
+      "research and analysis team.jpeg",
+      "sales and marketing team.jpeg",
+      "collective investment fund managers.jpeg",
+      "Treasury and finance departments.jpeg",
+      "strategy teams.jpeg",
+      "executive management and boards.jpeg"
     ];
 
     const getAudience = (titles: string[], descs: string[]) => 
@@ -39,12 +39,12 @@ export default function TargetAudience({ lang }: { lang: Language }) {
         audience: getAudience(
           ["Research & Analysis Teams", "Sales & Marketing Teams", "Collective Investment Fund Managers", "Treasury & Finance Departments", "Strategy Teams", "Executive Management & Boards"],
           [
-            "Finicify automates data collection, analysis, and reporting processes...",
-            "Through customized reports and model portfolios...",
-            "Finicify enables controlled and sustainable portfolio management...",
-            "Finicify empowers institutions managing their own assets...",
-            "By evaluating competitive and scenario analyses...",
-            "Through summarized, verified, and approved reports..."
+            "Finicify automates data collection, analysis, and reporting processes, enabling analysts to produce deeper, faster, and more consistent insights.",
+            "Through customized reports and model portfolios tailored to different client segments and risk profiles, Finicify delivers data-driven content that accelerates sales cycles and increases client acquisition.",
+            "Finicify enables controlled and sustainable portfolio management by providing comparative performance, risk, and benchmark analytics within a single platform.",
+            "Finicify empowers institutions managing their own assets to make data-driven investment decisions through customizable, multi-asset analytics aligned with institutional strategies, strengthening financial planning processes.",
+            "By evaluating competitive and scenario analyses using data-driven methodologies, Finicify identifies institutional positioning and development areas, strengthening long-term strategic planning.",
+            "Through summarized, verified, and approved reports and a fully integrated, data-driven monitoring system, Finicify enables fast, transparent, and reliable decision-making while strengthening governance and oversight processes."
           ]
         )
       },
@@ -53,30 +53,30 @@ export default function TargetAudience({ lang }: { lang: Language }) {
         subheading: "Kimin İçin?",
         label: "Şunun İçin Çözümler",
         audience: getAudience(
-          ["Araştırma & Analiz", "Satış ve Pazarlama", "Fon Yöneticileri", "Hazine & Finans", "Strateji", "Yönetim"],
+          ["Araştırma & Analiz Departmanı Çalışanları", "Satış ve Pazarlama Departmanı Çalışanları", "Kolektif Yatırım Fonu Yöneticileri", "Hazine & Finans Departmanları", "Strateji Departmanı Çalışanları", "İcra ve Yönetim Kurulları"],
           [
-            "Veri toplama, analiz ve raporlama süreçlerini otomatikleştirir...",
-            "Farklı müşteri gruplarına özel içerik sunar...",
-            "Fon performansını tek platformda izler...",
-            "Kurumlara veri odaklı yatırım imkanı sağlar...",
-            "Rekabet analizlerini değerlendirir...",
-            "Onaylı raporlarla güvenli karar alma sağlar..."
+            "Veri toplama, analiz ve raporlama süreçlerini otomatikleştirerek analistlerin daha derin, hızlı ve tutarlı içerikler üretmesini sağlar.",
+            "Farklı müşteri gruplarına ve risk seviyelerine uygun özelleştirilmiş raporlar ve model portföyler sayesinde, müşteri ihtiyaçlarına özel veri destekli içerikler sunarak satış süreçlerini hızlandırır ve müşteri kazanım oranını artırır.",
+            "Fon performansını, risk metriklerini ve benchmark analizlerini karşılaştırmalı olarak tek platformda izleyerek daha kontrollü ve sürdürülebilir portföy yönetimi sağlar.",
+            "Kendi varlığını yöneten kurumlara yönelik farklı varlık türleri için kurumsal yaklaşıma uygun özelleştirilebilir analizler sayesinde yatırım tercihlerini veriye dayalı olarak yapma imkanı sağlar ve finansal planlama süreçlerini güçlendirir.",
+            "Rekabet ve senaryo analizlerini veriye dayalı olarak değerlendirerek, kurumun sektördeki konumunu ve gelişim alanlarını objektif biçimde tespit eder; bu bulgularla desteklenen uzun vadeli stratejik planlamayı güçlendirir.",
+            "Özetlenmiş, doğrulanmış ve onaylı raporlar ile tüm süreçlerin veriye dayalı olarak izlenip değerlendirilebildiği entegre bir sistem sayesinde hızlı, şeffaf ve güvenilir karar alma imkânı sunar, denetim ve yönetim süreçlerini güçlendirir."
           ]
         )
       },
       DE: {
         heading: "Zielgruppen",
-        subheading: "Entwickelt für Entscheidungsträger",
+        subheading: "Entwickelt für finanzielle Entscheidungsträger",
         label: "Lösungen für",
         audience: getAudience(
-          ["Analyse Teams", "Marketing", "Fondsmanager", "Finanzabteilungen", "Strategie", "Vorstand"],
+          ["Research- & Analyseteams", "Vertriebs- & Marketingteams", "Investmentfondsmanager", "Treasury- & Finanzabteilungen", "Strategieteams", "Vorstand & Aufsichtsrat"],
           [
-            "Finicify automatisiert Datenprozesse...",
-            "Maßgeschneiderte Berichte beschleunigen Vertrieb...",
-            "Kontrolliertes Portfoliomanagement...",
-            "Datenbasierte Entscheidungen...",
-            "Analyse von Szenarien...",
-            "Schnelle Entscheidungsfindung..."
+            "Finicify automatisiert Datenerfassungs-, Analyse- und Berichterstattungsprozesse und ermöglicht es Analysten, tiefere Erkenntnisse zu gewinnen.",
+            "Durch maßgeschneiderte Berichte und Modellportfolios liefert Finicify datengesteuerte Inhalte, die Vertriebszyklen beschleunigen.",
+            "Finicify ermöglicht ein kontrolliertes Portfoliomanagement durch vergleichende Performance-, Risiko- und Benchmark-Analysen.",
+            "Finicify befähigt Institutionen, datengesteuerte Investitionsentscheidungen durch anpassbare Multi-Asset-Analysen zu treffen.",
+            "Durch die Bewertung von Wettbewerbs- und Szenarioanalysen identifiziert Finicify institutionelle Positionierungs- und Entwicklungsbereiche.",
+            "Durch verifizierte Berichte und ein voll integriertes Monitoring-System ermöglicht Finicify eine schnelle und zuverlässige Entscheidungsfindung."
           ]
         )
       }
@@ -89,12 +89,11 @@ export default function TargetAudience({ lang }: { lang: Language }) {
   return (
     <section id="who-is-it-for" className="w-full py-24 bg-[#050a12] font-montserrat">
       <div className="max-w-[1440px] mx-auto px-10 md:px-20">
-
         <div className="text-center mb-16">
-          <h2 className="text-[28px] md:text-[42px] font-bold text-white mb-2">
+          <h2 className="text-[28px] md:text-[42px] font-bold text-white tracking-tight mb-2">
             {data.heading}
           </h2>
-          <p className="text-[#1bc6e7] text-[14px] uppercase tracking-widest">
+          <p className="text-[#1bc6e7] text-[14px] uppercase tracking-widest font-medium opacity-80">
             {data.subheading}
           </p>
         </div>
@@ -104,8 +103,10 @@ export default function TargetAudience({ lang }: { lang: Language }) {
             <button
               key={item.title}
               onClick={() => setActiveTab(index)}
-              className={`px-4 py-4 rounded-xl text-[12px] font-bold ${
-                activeTab === index ? "bg-[#0275f6] text-white" : "text-gray-500"
+              className={`px-4 py-4 rounded-xl text-[12px] uppercase tracking-wider font-bold transition-all duration-300 border ${
+                activeTab === index 
+                ? "bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] text-white border-transparent shadow-[0_0_20px_rgba(2,117,246,0.3)]" 
+                : "bg-transparent text-gray-500 border-gray-800 hover:border-gray-600 hover:text-white"
               }`}
             >
               {item.title}
@@ -113,26 +114,28 @@ export default function TargetAudience({ lang }: { lang: Language }) {
           ))}
         </div>
 
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center">
-          <div className="w-full md:w-1/2">
+        <div className="max-w-5xl mx-auto bg-[#12181f] border border-gray-800 rounded-3xl p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center min-h-[450px]">
+          <div className="w-full md:w-1/2 aspect-square bg-[#0a1018] rounded-2xl flex items-center justify-center border border-gray-800 overflow-hidden relative">
             <img 
-              src={activeContent.image}
+              src={`/${activeContent.image}`} 
               alt={activeContent.title}
-              className="w-full h-full object-cover rounded-2xl"
+              className="w-full h-full object-cover scale-105 opacity-100 transition-all duration-500"
+              onError={(e) => { e.currentTarget.style.display = 'none'; }} 
             />
           </div>
 
           <div className="w-full md:w-1/2">
-            <h3 className="text-[#1bc6e7] mb-4">{data.label}</h3>
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="text-[#1bc6e7] text-[11px] uppercase tracking-[0.3em] font-bold mb-4">
+              {data.label}
+            </h3>
+            <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
               {activeContent.title}
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 leading-relaxed text-lg font-light">
               {activeContent.desc}
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );
