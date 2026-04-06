@@ -1,123 +1,124 @@
-import { useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-interface AboutProps {
-  lang: 'EN' | 'TR' | 'DE';
+type Language = 'EN' | 'TR' | 'DE';
+
+interface HeroProps {
+  t: {
+    title: string;
+    desc: string;
+    cta: string;
+  };
+  lang: Language;
 }
 
-interface TeamMember {
-  name: string;
-  role: string;
-  image: string;
-  linkedin: string;
-}
+export default function Hero({ t }: HeroProps) {
+  
+  const screens = [
+    "/finicify-X-Arc/first.jpeg",
+    "/finicify-X-Arc/second.png",
+    "/finicify-X-Arc/third.png",
+    "/finicify-X-Arc/fourth.png",
+    "/finicify-X-Arc/fifth.png"
+  ];
 
-export default function About({ lang }: AboutProps) {
-  const team: TeamMember[] = useMemo(() => {
-    const roleLabel = lang === 'TR' ? "Kurucu Ortak" : "Co-Founder";
-    
-    return [
-      { 
-        name: "Tunca Tosun", 
-        role: roleLabel,
-        image: "/finicify-X-Arc/founder4.jpeg", 
-        linkedin: "http://linkedin.com/in/tunca-tosun-9098bb192" 
-      },
-      { 
-        name: "Orhan Alay", 
-        role: roleLabel, 
-        image: "/finicify-X-Arc/founder1.jpeg", 
-        linkedin: "https://www.sahibinden.com/ilan/vasita-otomobil-fiat-2024-fiat-egea-1.3-mjet-20-faturali-boyasiz-11.000-km-1305839058/detay" 
-      },
-      { 
-        name: "Baran Alp Narinoğlu", 
-        role: roleLabel,
-        image: "/finicify-X-Arc/founder3.jpeg", 
-        linkedin: "http://linkedin.com/in/baran-alp-narinoglu-3a2692184" 
-      },
-      { 
-        name: "Can Say", 
-        role: roleLabel,
-        image: "/finicify-X-Arc/founder2.jpeg", 
-        linkedin: "http://linkedin.com/in/can-say-58869b168" 
-      },
-    ];
-  }, [lang]);
+  const [current, setCurrent] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  const content = {
-    teamLabel: lang === 'EN' ? 'Founders' : lang === 'TR' ? 'Kurucular' : 'Gründer',
-    teamTitle: lang === 'EN' ? 'The Founding Team' : lang === 'TR' ? 'Kurucu Ekibimiz' : 'Das Gründerteam',
-    ctaTitle: lang === 'EN' 
-      ? 'Shaping the future of financial automation.' 
-      : lang === 'TR' ? 'Finansal otomasyonun geleceğini şekillendiriyoruz.' : 'Die Zukunft der Finanzautomatisierung gestalten.',
-    ctaDesc: lang === 'EN' 
-      ? 'Through AI-powered analytics and automated reporting systems, Finicify is shaping the future of financial content, enabling institutions to deliver faster, more scalable, and higher-quality outputs.' 
-      : lang === 'TR' 
-      ? 'Yapay zeka destekli analiz ve otomatik raporlama sistemleri aracılığıyla Finicify, finansal içeriğin geleceğini şekillendirerek kurumların daha hızlı, daha ölçeklenebilir ve daha yüksek kaliteli çıktılar sunmasını sağlar.'
-      : 'Durch KI-gestützte Analysen und automatisierte Berichterstattung gestaltet Finicify die Zukunft von Finanzinhalten und ermöglicht Institutionen eine schnellere und hochwertigere Bereitstellung.',
-    ctaButton: lang === 'EN' ? 'Contact Us' : lang === 'TR' ? 'Bize Ulaşın' : 'Kontaktieren Sie uns'
+  const handleNext = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrent((prev) => (prev === screens.length - 1 ? 0 : prev + 1));
+  }, [isAnimating, screens.length]);
+
+  const handlePrev = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrent((prev) => (prev === 0 ? screens.length - 1 : prev - 1));
   };
 
+  useEffect(() => {
+    const autoPlayTimer = setInterval(() => {
+      handleNext();
+    }, 4000);
+
+    return () => clearInterval(autoPlayTimer);
+  }, [handleNext]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsAnimating(false), 500);
+    return () => clearTimeout(timer);
+  }, [current]);
+
   return (
-    <section id="about" className="w-full font-montserrat">
-      <div className="w-full bg-[#050a12] py-24 md:py-32 px-10 md:px-20 border-t border-gray-800/30">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="text-center mb-20">
-            <span className="text-[#1bc6e7] text-[12px] uppercase tracking-[0.4em] font-bold">
-              {content.teamLabel}
-            </span>
-            <h3 className="text-[36px] md:text-[48px] font-bold text-white mt-4">
-              {content.teamTitle}
-            </h3>
-          </div>
-
-          <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 max-w-7xl mx-auto">
-            {team.map((member) => (
-              <div key={member.name} className="flex-1 min-w-[250px] max-w-[320px] flex flex-col">
-                <div className="w-full aspect-[4/5] bg-[#0a1018] border border-gray-800/50 rounded-2xl mb-6 flex items-center justify-center overflow-hidden relative shadow-2xl transition-all duration-500 hover:border-[#0275f6]/40 group">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0275f6]/15 to-transparent pointer-events-none" />
-                </div>
-
-                <div className="flex-grow space-y-1">
-                  <div className="flex items-center gap-2">
-                    <h4 className="text-[17px] font-bold text-white truncate">{member.name}</h4>
-                    <a 
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-5 h-5 bg-gray-800 rounded flex items-center justify-center text-[#0275f6] text-[10px] font-bold cursor-pointer hover:bg-[#0275f6] hover:text-white transition-all flex-shrink-0"
-                    >
-                      in
-                    </a>
-                  </div>
-                  <p className="text-gray-400 font-semibold text-sm">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+    <section className="relative w-full pt-32 pb-20 px-10 md:px-20 font-montserrat bg-[#050a12] overflow-hidden">
+    
+      <div className="absolute inset-0 z-0">
+        <img src="/finicify-X-Arc/walpaper.jpeg" alt="" className="w-full h-full object-cover opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050a12]/40 to-[#050a12]" />
       </div>
 
-      <div className="w-full bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] py-24 px-10 md:px-20 flex flex-col items-center justify-center text-center">
-        <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-6 tracking-tight">
-          {content.ctaTitle}
-        </h2>
-        <p className="text-white/90 text-[14px] md:text-[16px] font-normal max-w-3xl mb-10 leading-relaxed">
-          {content.ctaDesc}
-        </p>
-        <a
-          href="https://calendly.com/tunca-finicify"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-10 py-4 bg-black text-white font-bold rounded-lg hover:scale-105 transition-transform duration-300 shadow-xl"
-        >
-          {content.ctaButton}
-        </a>
+      <div className="max-w-[1440px] mx-auto relative z-10">
+        <div className="max-w-4xl">
+          <h1 className="text-[36px] md:text-[64px] font-bold text-white max-w-5xl mb-8 tracking-wider leading-[1.15] md:leading-[1.2] drop-shadow-lg">
+            {t.title}
+          </h1>
+          <p className="mt-6 text-[14px] md:text-[18px] text-gray-200 max-w-xl font-medium leading-relaxed drop-shadow-md">
+            {t.desc}
+          </p>
+          <div className="mt-8">
+            <a
+              href="https://calendly.com/tunca-finicify"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-4 bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] text-white font-bold rounded-lg text-[15px] hover:scale-105 transition-transform shadow-[0_0_30px_rgba(2,117,246,0.3)]"
+            >
+              {t.cta}
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-16 w-full relative group">
+         
+          <div className="absolute -inset-1 bg-[#0275f6]/20 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition duration-1000" />
+
+          <div className="relative rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(2,117,246,0.2)] border border-gray-700/50 transition-all duration-700 ease-out group-hover:scale-[1.01] group-hover:-translate-y-1">
+            
+            <div className="relative w-full aspect-video bg-[#0d1117]">
+             
+              <img
+                src={screens[current]}
+                className={`w-full h-full object-cover object-top transition-opacity duration-700 ${isAnimating ? 'opacity-40' : 'opacity-100'}`}
+                alt="Dashboard Preview"
+              />
+
+              <div className="absolute inset-0 flex items-center justify-between px-4 sm:px-8 pointer-events-none">
+                <button
+                  onClick={handlePrev}
+                  className="pointer-events-auto p-3 bg-black/20 hover:bg-[#0275f6] backdrop-blur-sm text-white rounded-full border border-white/10 transition-all duration-300 shadow-xl"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="pointer-events-auto p-3 bg-black/20 hover:bg-[#1bc6e7] backdrop-blur-sm text-white rounded-full border border-white/10 transition-all duration-300 shadow-xl"
+                >
+                  →
+                </button>
+              </div>
+
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+                {screens.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrent(i)}
+                    className={`h-1.5 transition-all duration-500 rounded-full shadow-sm ${i === current ? 'w-10 bg-[#1bc6e7]' : 'w-2 bg-white/40'}`}
+                  />
+                ))}
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
