@@ -50,7 +50,7 @@ export default function Hero({ t }: HeroProps) {
   }, [current]);
 
   return (
-    <section className="relative w-full pt-32 pb-20 px-10 md:px-20 font-montserrat bg-[#050a12] overflow-hidden">
+    <section id="home" className="relative w-full pt-28 sm:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 md:px-20 font-montserrat bg-[#050a12] overflow-hidden">
     
       <div className="absolute inset-0 z-0">
         <img src="/walpaper.jpeg" alt="" className="w-full h-full object-cover opacity-50" />
@@ -59,7 +59,7 @@ export default function Hero({ t }: HeroProps) {
 
       <div className="max-w-[1440px] mx-auto relative z-10">
         <div className="max-w-4xl">
-          <h1 className="text-[36px] md:text-[64px] font-bold text-white max-w-5xl mb-8 tracking-wider leading-[1.15] md:leading-[1.2] drop-shadow-lg">
+          <h1 className="text-[28px] sm:text-[36px] md:text-[64px] font-bold text-white max-w-5xl mb-6 sm:mb-8 tracking-wider leading-[1.12] sm:leading-[1.15] md:leading-[1.2] drop-shadow-lg">
             {t.title}
           </h1>
           <p className="mt-6 text-[14px] md:text-[18px] text-gray-200 max-w-xl font-medium leading-relaxed drop-shadow-md">
@@ -70,7 +70,7 @@ export default function Hero({ t }: HeroProps) {
               href="https://calendly.com/tunca-finicify"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] text-white font-bold rounded-lg text-[15px] hover:scale-105 transition-transform shadow-[0_0_30px_rgba(2,117,246,0.3)]"
+              className="inline-flex w-full sm:w-auto justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] text-white font-bold rounded-lg text-sm sm:text-[15px] hover:scale-[1.02] sm:hover:scale-105 transition-transform shadow-[0_0_30px_rgba(2,117,246,0.3)] touch-manipulation"
             >
               {t.cta}
             </a>

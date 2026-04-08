@@ -87,10 +87,10 @@ export default function TargetAudience({ lang }: { lang: Language }) {
   const activeContent = data.audience[activeTab];
 
   return (
-    <section id="who-is-it-for" className="w-full py-24 bg-[#050a12] font-montserrat">
-      <div className="max-w-[1440px] mx-auto px-10 md:px-20">
+    <section id="who-is-it-for" className="w-full py-16 sm:py-24 bg-[#050a12] font-montserrat">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-20">
         <div className="text-center mb-16">
-          <h2 className="text-[28px] md:text-[42px] font-bold text-white tracking-tight mb-2">
+          <h2 className="text-[22px] sm:text-[28px] md:text-[42px] font-bold text-white tracking-tight mb-2 px-1">
             {data.heading}
           </h2>
           <p className="text-[#1bc6e7] text-[14px] uppercase tracking-widest font-medium opacity-80">
@@ -98,12 +98,13 @@ export default function TargetAudience({ lang }: { lang: Language }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-12 sm:mb-20 max-w-5xl mx-auto">
           {data.audience.map((item, index) => (
             <button
               key={item.title}
+              type="button"
               onClick={() => setActiveTab(index)}
-              className={`px-4 py-4 rounded-xl text-[12px] uppercase tracking-wider font-bold transition-all duration-300 border ${
+              className={`px-3 sm:px-4 py-3.5 sm:py-4 rounded-xl text-[10px] sm:text-[12px] uppercase tracking-wide sm:tracking-wider font-bold transition-all duration-300 border text-balance leading-snug touch-manipulation min-h-[48px] ${
                 activeTab === index 
                 ? "bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] text-white border-transparent shadow-[0_0_20px_rgba(2,117,246,0.3)]" 
                 : "bg-transparent text-gray-500 border-gray-800 hover:border-gray-600 hover:text-white"
@@ -114,7 +115,7 @@ export default function TargetAudience({ lang }: { lang: Language }) {
           ))}
         </div>
 
-        <div className="max-w-5xl mx-auto bg-[#12181f] border border-gray-800 rounded-3xl p-10 md:p-16 flex flex-col md:flex-row gap-12 items-center min-h-[450px]">
+        <div className="max-w-5xl mx-auto bg-[#12181f] border border-gray-800 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 flex flex-col md:flex-row gap-8 sm:gap-12 items-center min-h-0 md:min-h-[450px]">
           <div className="w-full md:w-1/2 aspect-square bg-[#0a1018] rounded-2xl flex items-center justify-center border border-gray-800 overflow-hidden relative">
             <img 
               src={`/${activeContent.image}`}
@@ -128,10 +129,10 @@ export default function TargetAudience({ lang }: { lang: Language }) {
             <h3 className="text-[#1bc6e7] text-[11px] uppercase tracking-[0.3em] font-bold mb-4">
               {data.label}
             </h3>
-            <h3 className="text-3xl font-bold text-white mb-6 leading-tight">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               {activeContent.title}
             </h3>
-            <p className="text-gray-400 leading-relaxed text-lg font-light">
+            <p className="text-gray-400 leading-relaxed text-sm sm:text-base md:text-lg font-light">
               {activeContent.desc}
             </p>
           </div>

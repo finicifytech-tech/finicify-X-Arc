@@ -59,7 +59,7 @@ export default function About({ lang }: AboutProps) {
 
   return (
     <section id="about" className="w-full font-montserrat">
-      <div className="w-full bg-[#050a12] py-24 md:py-32 px-10 md:px-20 border-t border-gray-800/30">
+      <div className="w-full bg-[#050a12] py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-20 border-t border-gray-800/30">
         <div className="max-w-[1440px] mx-auto">
           <div className="text-center mb-20">
             <span className="text-[#1bc6e7] text-[12px] uppercase tracking-[0.4em] font-bold">
@@ -70,9 +70,9 @@ export default function About({ lang }: AboutProps) {
             </h3>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-center items-stretch gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto justify-items-center">
             {team.map((member) => (
-              <div key={member.name} className="flex-1 min-w-[250px] max-w-[320px] flex flex-col">
+              <div key={member.name} className="w-full max-w-[320px] flex flex-col">
                 <div className="w-full aspect-[4/5] bg-[#0a1018] border border-gray-800/50 rounded-2xl mb-6 flex items-center justify-center overflow-hidden relative shadow-2xl transition-all duration-500 hover:border-[#0275f6]/40 group">
                   <img 
                     src={member.image} 
@@ -104,8 +104,8 @@ export default function About({ lang }: AboutProps) {
         </div>
       </div>
 
-      <div className="w-full bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] py-24 px-10 md:px-20 flex flex-col items-center justify-center text-center">
-        <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-6 tracking-tight">
+      <div className="w-full bg-gradient-to-r from-[#0275f6] to-[#1bc6e7] py-16 sm:py-24 px-4 sm:px-6 md:px-20 flex flex-col items-center justify-center text-center">
+        <h2 className="text-[22px] sm:text-[28px] md:text-[44px] font-bold text-white mb-4 sm:mb-6 tracking-tight px-2">
           {content.ctaTitle}
         </h2>
         <p className="text-white/90 text-[14px] md:text-[16px] font-normal max-w-3xl mb-10 leading-relaxed">
@@ -115,7 +115,7 @@ export default function About({ lang }: AboutProps) {
   href="https://calendly.com/tunca-finicify"
   target="_blank"
   rel="noopener noreferrer"
-  className="inline-block px-10 py-4 bg-black text-white font-bold rounded-lg hover:scale-105 transition-transform duration-300 shadow-xl"
+  className="inline-flex w-full max-w-xs sm:max-w-none justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-black text-white font-bold rounded-lg hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 shadow-xl touch-manipulation"
 >
   {content.ctaButton}
 </a>

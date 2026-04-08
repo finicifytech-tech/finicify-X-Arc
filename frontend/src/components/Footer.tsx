@@ -14,7 +14,7 @@ export default function Footer({ t, lang }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-[#050a12] pt-20 pb-10 px-10 md:px-20 border-t border-gray-800/30 font-montserrat">
+    <footer className="w-full bg-[#050a12] pt-16 sm:pt-20 pb-8 sm:pb-10 px-4 sm:px-6 md:px-20 border-t border-gray-800/30 font-montserrat">
       <div className="max-w-[1440px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
           <div className="space-y-6">

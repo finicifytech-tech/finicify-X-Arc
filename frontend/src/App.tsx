@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ModuleSlider from './components/ModuleSlider'
@@ -11,14 +11,16 @@ import { translation, type Language } from './translation'
 
 
 function App() {
-  
-  const [lang, setLang] = useState<Language>('EN'); 
-  
+  const [lang, setLang] = useState<Language>('EN');
 
-  const t = translation[lang]; 
+  useEffect(() => {
+    document.title = 'Finicify'
+  }, [])
+
+  const t = translation[lang]
 
   return (
-    <div className="min-h-screen bg-[#050a12] w-screen overflow-x-hidden">
+    <div className="min-h-screen min-w-0 w-full max-w-[100vw] overflow-x-hidden bg-[#050a12]">
       <Navbar lang={lang} setLang={setLang} t={t.nav} />
       <main>
         <Hero t={t.hero} lang={lang} />

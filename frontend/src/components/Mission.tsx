@@ -13,20 +13,20 @@ export default function Mission({ t }: MissionProps) {
   return (
     <section
       id="mission"
-      className="w-full min-h-screen bg-[#050a12] flex flex-col md:flex-row font-montserrat border-t border-gray-800/30"
+      className="w-full min-h-0 md:min-h-screen bg-[#050a12] flex flex-col md:flex-row font-montserrat border-t border-gray-800/30"
     >
-      <div className="w-full md:w-1/2 flex items-center px-10 md:px-20 py-24">
+      <div className="w-full md:w-1/2 flex items-center px-4 sm:px-6 md:px-20 py-16 md:py-24">
         <div className="max-w-xl">
           <h2 className="text-[#1bc6e7] text-[12px] uppercase tracking-[0.4em] font-bold mb-8">
             {t.label}
           </h2>
 
-          <h3 className="text-[32px] md:text-[52px] font-bold text-white leading-[1.15] mb-12 tracking-tight">
+          <h3 className="text-[26px] sm:text-[32px] md:text-[52px] font-bold text-white leading-[1.15] mb-8 sm:mb-12 tracking-tight">
             {t.title}
           </h3>
 
           <div className="space-y-8">
-            <p className="text-gray-300 text-[19px] leading-relaxed font-light tracking-wide">
+            <p className="text-gray-300 text-base sm:text-[17px] md:text-[19px] leading-relaxed font-light tracking-wide">
               {t.desc1}
             </p>
 
