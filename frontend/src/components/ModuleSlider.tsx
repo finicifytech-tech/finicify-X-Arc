@@ -14,10 +14,12 @@ interface Localization {
 }
 
 export default function ModuleSlider({ lang }: { lang: Language }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [stepPx, setStepPx] = useState(432);
+  // Start in the middle copy of the triplicated array for infinite loop
+  const [currentIndex, setCurrentIndex] = useState(6);
+  const [stepPx, setStepPx] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [animated, setAnimated] = useState(true);
   const dragStartRef = useRef<{ x: number; pointerId: number } | null>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -33,7 +35,7 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
           },
           {
             title: "Customizable Automated Analytics and Reporting Infrastructure Aligned with Institutional Standards",
-            desc: "Finicify provides a flexible and sustainable analytics and reporting infrastructure that adapts to your institution’s methodologies and operational standards.",
+            desc: "Finicify provides a flexible and sustainable analytics and reporting infrastructure that adapts to your institution's methodologies and operational standards.",
             image: "/2.png",
           },
           {
@@ -133,13 +135,39 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
   );
 
   const current = data[lang];
+  const n = current.modules.length; // 6
 
+  // Triple the array: [copy1, real, copy2] — start in the middle (real) set
+  const loopModules = useMemo(
+    () => [...current.modules, ...current.modules, ...current.modules],
+    [current.modules]
+  );
+
+  // Silently jump to the equivalent position in the middle set without animation
+  const jumpSilent = useCallback((target: number) => {
+    setAnimated(false);
+    setCurrentIndex(target);
+    // Re-enable animation after two frames so the DOM has updated
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => setAnimated(true));
+    });
+  }, []);
+
+  // After each animated move, if we've drifted into a cloned set → snap back silently
+  useEffect(() => {
+    if (currentIndex < n || currentIndex >= 2 * n) {
+      const target = currentIndex < n ? currentIndex + n : currentIndex - n;
+      const timer = setTimeout(() => jumpSilent(target), 720);
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, n, jumpSilent]);
+
+  // Measure card width + gap to drive the transform
   const measureStep = useCallback(() => {
     const track = trackRef.current;
-    const first = track?.firstElementChild as HTMLElement | undefined;
+    const first = track?.firstElementChild as HTMLElement | null;
     if (!track || !first) return;
-    const gapStr = getComputedStyle(track).gap;
-    const gap = parseFloat(gapStr) || 0;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
     const w = first.getBoundingClientRect().width;
     if (w > 0) setStepPx(w + gap);
   }, []);
@@ -158,21 +186,14 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
       ro.disconnect();
       window.removeEventListener("orientationchange", measureStep);
     };
-  }, [measureStep, lang, currentIndex, current.modules.length]);
+  }, [measureStep, lang]);
 
-  const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % current.modules.length);
-  }, [current.modules.length]);
+  const handleNext = useCallback(() => setCurrentIndex((p) => p + 1), []);
+  const handlePrev = useCallback(() => setCurrentIndex((p) => p - 1), []);
 
-  const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? current.modules.length - 1 : prev - 1));
-  }, [current.modules.length]);
-
-  const maxOffset = stepPx * 0.35;
-  const clampedDrag = Math.max(-maxOffset, Math.min(maxOffset, dragOffset));
-
+  const maxDrag = stepPx * 0.4;
+  const clampedDrag = Math.max(-maxDrag, Math.min(maxDrag, dragOffset));
   const baseX = -(currentIndex * stepPx) + (isDragging ? clampedDrag : 0);
-  const transformStyle = { transform: `translate3d(${baseX}px, 0, 0)` };
 
   const onPointerDown = (e: React.PointerEvent) => {
     if (e.button !== 0) return;
@@ -188,51 +209,49 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
     setDragOffset(e.clientX - start.x);
   };
 
-  const finishPointer = (e: React.PointerEvent) => {
+  const finishDrag = (e: React.PointerEvent) => {
     const start = dragStartRef.current;
     if (!start || start.pointerId !== e.pointerId) return;
-    try {
-      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
-    } catch {
-      /* ignore */
-    }
+    try { (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId); } catch { /* noop */ }
     const dx = e.clientX - start.x;
     dragStartRef.current = null;
     setIsDragging(false);
     setDragOffset(0);
-    const threshold = Math.min(72, stepPx * 0.18);
+    const threshold = Math.min(60, stepPx * 0.15);
     if (dx > threshold) handlePrev();
     else if (dx < -threshold) handleNext();
   };
 
-  const onPointerUp = (e: React.PointerEvent) => finishPointer(e);
-  const onPointerCancel = (e: React.PointerEvent) => {
+  const cancelDrag = () => {
     dragStartRef.current = null;
     setIsDragging(false);
     setDragOffset(0);
-    try {
-      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
-    } catch {
-      /* ignore */
-    }
   };
 
+  // Which real dot should be active (maps any index back to 0–n-1)
+  const dotIndex = ((currentIndex % n) + n) % n;
+
   return (
-    <section id="modules" className="w-full py-16 sm:py-24 bg-[#050a12] font-montserrat overflow-hidden">
+    <section
+      id="modules"
+      className="w-full py-16 sm:py-24 bg-[#050a12] font-montserrat overflow-hidden"
+    >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-20">
-        <div className="flex flex-col gap-6 sm:flex-row sm:justify-between sm:items-end mb-10 sm:mb-16">
+
+        {/* ── Header ── */}
+        <div className="flex flex-col gap-5 sm:flex-row sm:justify-between sm:items-end mb-10 sm:mb-14">
           <div className="flex-1 min-w-0">
-            <h2 className="text-[10px] sm:text-[11px] uppercase tracking-[0.35em] sm:tracking-[0.4em] text-[#1bc6e7] font-bold mb-3 sm:mb-4 opacity-90">
+            <h2 className="text-[10px] sm:text-[11px] uppercase tracking-[0.35em] sm:tracking-[0.4em] text-[#1bc6e7] font-bold mb-3 opacity-90">
               {current.label}
             </h2>
             <div className="h-px w-32 sm:w-48 bg-gray-800" />
           </div>
 
-          <div className="flex gap-2 sm:gap-4 shrink-0 self-start sm:self-auto sm:ml-8">
+          <div className="flex gap-2 shrink-0 self-start sm:self-auto">
             <button
               type="button"
               onClick={handlePrev}
-              className="p-2.5 sm:p-3 rounded-full border border-gray-800 text-white hover:bg-[#0275f6] transition touch-manipulation"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-gray-700 text-gray-400 hover:border-[#0275f6] hover:text-white hover:bg-[#0275f6]/20 transition-all touch-manipulation flex items-center justify-center"
               aria-label="Previous module"
             >
               ←
@@ -240,7 +259,7 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
             <button
               type="button"
               onClick={handleNext}
-              className="p-2.5 sm:p-3 rounded-full border border-gray-800 text-white hover:bg-[#1bc6e7] transition touch-manipulation"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-gray-700 text-gray-400 hover:border-[#1bc6e7] hover:text-white hover:bg-[#1bc6e7]/20 transition-all touch-manipulation flex items-center justify-center"
               aria-label="Next module"
             >
               →
@@ -248,41 +267,79 @@ export default function ModuleSlider({ lang }: { lang: Language }) {
           </div>
         </div>
 
-        <p className="text-gray-500 text-xs mb-4 lg:hidden">Swipe or drag the cards horizontally</p>
+        <p className="text-gray-600 text-[11px] mb-5 lg:hidden select-none">
+          Swipe to browse modules
+        </p>
 
+        {/* ── Infinite carousel ── */}
         <div
-          className="relative overflow-hidden rounded-xl [-webkit-overflow-scrolling:touch] select-none cursor-grab active:cursor-grabbing [touch-action:none]"
+          className="relative overflow-hidden select-none cursor-grab active:cursor-grabbing [touch-action:pan-y]"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
-          onPointerUp={onPointerUp}
-          onPointerCancel={onPointerCancel}
-          onLostPointerCapture={() => {
-            dragStartRef.current = null;
-            setIsDragging(false);
-            setDragOffset(0);
-          }}
+          onPointerUp={finishDrag}
+          onPointerCancel={cancelDrag}
+          onLostPointerCapture={cancelDrag}
           role="region"
           aria-roledescription="carousel"
           aria-label="Modules"
         >
           <div
             ref={trackRef}
-            className={`flex gap-6 sm:gap-8 will-change-transform ${isDragging ? "" : "transition-transform duration-700 ease-in-out"}`}
-            style={transformStyle}
+            style={{ transform: `translate3d(${baseX}px, 0, 0)` }}
+            className={[
+              "flex gap-4 sm:gap-5 will-change-transform",
+              animated && !isDragging
+                ? "transition-transform duration-[680ms] ease-in-out"
+                : "",
+            ].join(" ")}
           >
-            {current.modules.map((item, index) => (
+            {loopModules.map((item, index) => (
               <div
                 key={index}
-                className="shrink-0 min-w-[min(100%,280px)] sm:min-w-[320px] md:min-w-[400px] max-w-[calc(100vw-3rem)] sm:max-w-none bg-[#12181f] rounded-2xl p-5 sm:p-8"
+                className="shrink-0 w-full sm:w-[calc(50%-10px)] lg:w-[calc((100%-40px)/3)] bg-[#0c1420] border border-white/[0.06] rounded-2xl overflow-hidden flex flex-col"
               >
-                <img src={item.image} alt="" className="w-full h-[140px] sm:h-[160px] object-cover rounded-xl mb-4 sm:mb-6" />
+                {/* Full-width image */}
+                <div className="w-full aspect-[16/9] overflow-hidden bg-[#080f1a]">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    draggable={false}
+                    className="w-full h-full object-cover pointer-events-none"
+                  />
+                </div>
 
-                <h3 className="text-white font-semibold mb-3 sm:mb-4 text-[15px] sm:text-base leading-snug">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                {/* Card body */}
+                <div className="flex flex-col flex-1 p-5 sm:p-6 gap-3">
+                  <h3 className="text-white font-semibold text-[14px] sm:text-[15px] leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-500 text-[13px] leading-relaxed flex-1">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* ── Dot pagination ── */}
+        <div className="flex justify-center items-center gap-2 mt-8">
+          {current.modules.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setCurrentIndex(n + i)}
+              aria-label={`Go to module ${i + 1}`}
+              className={[
+                "rounded-full transition-all duration-300",
+                i === dotIndex
+                  ? "w-6 h-[6px] bg-[#1bc6e7]"
+                  : "w-[6px] h-[6px] bg-gray-700 hover:bg-gray-500",
+              ].join(" ")}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   );
